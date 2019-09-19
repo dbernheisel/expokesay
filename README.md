@@ -44,3 +44,7 @@ if [ -d "$HOME/.pokesay" ]; then
   source "$(find "$HOME/.pokesay" -type f | shuf -n 1)"
 fi
 ```
+
+## Credits
+
+https://github.com/possatti/pokemonsay
