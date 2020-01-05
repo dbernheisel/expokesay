@@ -14,8 +14,8 @@ defmodule Pokesay do
     Pokesay.Cow.generate()
   end
 
-  def generate_bash do
-    Pokesay.Bash.generate()
+  def generate_bash(overwrite \\ false) do
+    Pokesay.Bash.generate(overwrite)
   end
 
   def pokemon do

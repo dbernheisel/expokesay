@@ -5,6 +5,7 @@ defmodule Pokesay.Scraper do
   @cache_file "pokedex.html"
   @placeholder_img "//cdn.bulbagarden.net/upload/a/ab/000MS.png"
   @selector "a[href^='/wiki/'][href$='mon)'] > img:not([src='#{@placeholder_img}'])"
+  @size_to "20>"
 
   def get do
     File.mkdir(Pokesay.sprite_path())
@@ -26,7 +27,7 @@ defmodule Pokesay.Scraper do
     case File.exists?(file) do
       false ->
         download(img_uri, file)
-        System.cmd("convert", ["-trim", file, file])
+        System.cmd("convert", ["-trim", "-adaptive-resize #{@size_to}", file, file])
         {:ok, file}
 
       true ->

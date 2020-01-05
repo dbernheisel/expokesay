@@ -1,5 +1,5 @@
 defmodule Pokesay.Bash do
-  def generate do
+  def generate(overwrite) do
     File.mkdir(Pokesay.bash_path())
 
     Pokesay.pokemon()
@@ -7,7 +7,7 @@ defmodule Pokesay.Bash do
       name = Path.basename(pokemon, ".png")
       file = "#{Pokesay.bash_path()}/#{name}.sh"
 
-      if File.exists?(file) do
+      if File.exists?(file) && !overwrite do
         {:ok, file}
       else
         write_bash(pokemon, file)
@@ -31,8 +31,14 @@ defmodule Pokesay.Bash do
   defp generate_content(content) do
     """
     #!/bin/sh
+    CATTER=""
+    if type bat &> /dev/null; then
+      CATTER="bat -p --paging=never --wrap=never"
+    else
+      CATTER="cat"
+    fi
 
-    cat <<POKE
+    eval $CATTER <<POKE
     #{content}
     POKE
     """

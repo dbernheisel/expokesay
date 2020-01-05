@@ -32,7 +32,15 @@ Pokesay.generate_bash()
 Pokesay.generate_cows()
 ```
 
-Once you have your generated pokemon bash files, you can do nifty things like
+or use the Mix tasks:
+
+```bash
+mix Generate bash
+mix Generate bash overwrite
+mix Generate cows
+```
+
+Once you have your generated Pokemon bash files, you can do nifty things like
 randomly print on when you open your terminal
 
 ```sh
