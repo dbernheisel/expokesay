@@ -1,6 +1,12 @@
 #!/bin/sh
+CATTER=""
+if type bat &> /dev/null; then
+  CATTER="bat -p --paging=never --wrap=never"
+else
+  CATTER="cat"
+fi
 
-cat <<POKE
+eval $CATTER <<POKE
 [49m             [38;5;235m▄[48;5;235m[38;5;231m▄[48;5;236m[38;5;110m▄[49m[38;5;235m▄
              [38;5;236m▀[48;5;110m▄[48;5;189m [48;5;235m [49m
              [38;5;235m▀[48;5;153m▄[48;5;189m [48;5;236m▄[49m      ▄[48;5;235m[38;5;255m▄▄ [49m
