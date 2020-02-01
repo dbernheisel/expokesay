@@ -16,7 +16,7 @@ Stupid scripts that does this:
 * [img2xterm]
 * [imagemagick]
 
-[img2xterm]: https://github.com/XenGi/img2xterm
+[img2xterm]: https://github.com/denilsonsa/img2xterm
 [imagemagick]: https://imagemagick.org
 
 ## Usage
@@ -52,6 +52,8 @@ if [ -d "$HOME/.pokesay" ]; then
   source "$(find "$HOME/.pokesay" -type f | shuf -n 1)"
 fi
 ```
+
+There's another example [committed here](./scroll-pokemon.sh)
 
 ## Credits
 
